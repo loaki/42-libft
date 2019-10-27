@@ -4,7 +4,7 @@
 void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned long	i;
-	unsigned char *	str;
+	unsigned char	*str;
 
 	i = 0;
 	str = (unsigned char *)s;
