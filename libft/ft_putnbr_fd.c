@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfeuilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/04 13:27:35 by jfeuilla          #+#    #+#             */
-/*   Updated: 2019/11/04 13:27:38 by jfeuilla         ###   ########.fr       */
+/*   Created: 2019/11/04 16:33:08 by jfeuilla          #+#    #+#             */
+/*   Updated: 2019/11/04 16:42:49 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isascii(int c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	return (0);
+	unsigned int i;
+
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		i = n * -1;
+	}
+	else
+		i = n;
+	if (i >= 10)
+		ft_putnbr_fd(i / 10, fd);
+	ft_putchar_fd(i % 10 + '0', fd);
 }

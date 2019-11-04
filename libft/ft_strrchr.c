@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jfeuilla <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/04 13:30:17 by jfeuilla          #+#    #+#             */
+/*   Updated: 2019/11/04 13:32:55 by jfeuilla         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char	*strrchr (const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	int len;
 
@@ -13,4 +25,3 @@ char	*strrchr (const char *s, int c)
 	}
 	return (NULL);
 }
-
