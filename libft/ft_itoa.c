@@ -6,12 +6,11 @@
 /*   By: jfeuilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 16:53:51 by jfeuilla          #+#    #+#             */
-/*   Updated: 2019/11/04 17:22:03 by jfeuilla         ###   ########.fr       */
+/*   Updated: 2019/11/04 18:28:07 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 int		nblen(int nb)
 {

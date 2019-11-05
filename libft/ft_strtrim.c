@@ -6,7 +6,7 @@
 /*   By: jfeuilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 15:12:24 by jfeuilla          #+#    #+#             */
-/*   Updated: 2019/11/04 15:41:49 by jfeuilla         ###   ########.fr       */
+/*   Updated: 2019/11/05 13:53:52 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,15 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (set[i])
 	{
 		if (s1[start] == set[i])
+		{
 			start++;
+			i = -1;
+		}
 		if (s1[end] == set[i])
+		{
 			end--;
+			i = -1;
+		}
 		i++;
 	}
 	return (ft_fromtocpy(s1, start, end));

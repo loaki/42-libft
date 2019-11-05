@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfeuilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/04 16:33:08 by jfeuilla          #+#    #+#             */
-/*   Updated: 2019/11/05 15:29:01 by jfeuilla         ###   ########.fr       */
+/*   Created: 2019/11/05 14:27:32 by jfeuilla          #+#    #+#             */
+/*   Updated: 2019/11/05 15:03:35 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	unsigned int i;
+	t_list	*tmp;
+	t_list	*list;
 
-	if (n < 0)
+	list = *lst;
+	*lst = NULL;
+	if (list->next == NULL)
 	{
-		ft_putchar_fd('-', fd);
-		i = n * -1;
+		(*del)(list);
+		free(list);
 	}
-	else
-		i = n;
-	if (i >= 10)
-		ft_putnbr_fd(i / 10, fd);
-	ft_putchar_fd(i % 10 + '0', fd);
+	while (list->next)
+	{
+		tmp = list->next;
+		(*del)(list);
+		free(list);
+		list = tmp;
+	}
 }
