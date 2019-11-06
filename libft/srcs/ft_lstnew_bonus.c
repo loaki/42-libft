@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jfeuilla <jfeuilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jfeuilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/31 21:05:03 by jfeuilla          #+#    #+#             */
-/*   Updated: 2019/09/03 14:03:47 by jfeuilla         ###   ########.fr       */
+/*   Created: 2019/11/04 18:27:07 by jfeuilla          #+#    #+#             */
+/*   Updated: 2019/11/06 16:34:05 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-int		ft_strncmp(char *s1, char *s2, unsigned int n)
+t_list	*ft_lstnew(void *content)
 {
-	unsigned int i;
+	t_list *new;
 
-	i = 0;
-	if (n == 0)
-		return (0);
-	while ((s1[i] != '\0' || s2[i] != '\0') && i < (n - 1) && s1[i] == s2[i])
-	{
-		i++;
-	}
-	return (s1[i] - s2[i]);
+	if (!(new = (t_list *)malloc(sizeof(new))))
+		return (NULL);
+	if (!(new->content = (void *)malloc(sizeof(content))))
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }

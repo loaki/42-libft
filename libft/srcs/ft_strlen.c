@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfeuilla <jfeuilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/05 21:16:11 by jfeuilla          #+#    #+#             */
-/*   Updated: 2019/11/04 11:17:19 by jfeuilla         ###   ########.fr       */
+/*   Created: 2019/09/02 12:56:06 by jfeuilla          #+#    #+#             */
+/*   Updated: 2019/11/06 17:10:08 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
-#include <stdlib.h>
-#include <errno.h>
 
-char	*ft_strdup(char *src)
+size_t		ft_strlen(const char *str)
 {
-	int		i;
-	char	*ret;
+	int i;
 
 	i = 0;
-	while (src[i] != '\0')
-		i++;
-	i++;
-	ret = (char*)malloc(sizeof(src) * i);
-	i = 0;
-	if (ret == 0)
+	while (str[i] != '\0')
 	{
-		errno = ENOENT;
-		return (0);
-	}
-	while (src[i] != '\0')
-	{
-		ret[i] = src[i];
 		i++;
 	}
-	ret[i] = '\0';
-	return (ret);
+	return (i);
 }

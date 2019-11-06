@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfeuilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/04 13:28:31 by jfeuilla          #+#    #+#             */
-/*   Updated: 2019/11/04 13:32:32 by jfeuilla         ###   ########.fr       */
+/*   Created: 2019/11/04 13:33:24 by jfeuilla          #+#    #+#             */
+/*   Updated: 2019/11/05 18:01:36 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
+	void			*tab;
 	unsigned int	i;
-	unsigned char	*str1;
-	unsigned char	*str2;
 
 	i = 0;
-	str1 = (unsigned char *)src;
-	str2 = (unsigned char *)dest;
-	if (str2 > str1)
+	if (!(tab = (void *)malloc(size * nmemb)))
+		return (NULL);
+	while (i < nmemb * size)
 	{
-		while (i < n)
-		{
-			str2[n - 1] = str1[n - 1];
-			n--;
-		}
+		((char *)tab)[i] = 0;
+		i++;
 	}
-	else
-	{
-		while (i < n)
-		{
-			str2[i] = str1[i];
-			i++;
-		}
-	}
-	return (dest);
+	return (tab);
 }

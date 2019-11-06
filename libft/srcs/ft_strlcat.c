@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfeuilla <jfeuilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/02 12:56:06 by jfeuilla          #+#    #+#             */
-/*   Updated: 2019/09/02 14:21:56 by jfeuilla         ###   ########.fr       */
+/*   Created: 2019/09/02 00:11:30 by jfeuilla          #+#    #+#             */
+/*   Updated: 2019/11/06 16:46:44 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
 
-int		ft_strlen(char *str)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	int i;
+	unsigned int i;
+	unsigned int j;
+	unsigned int res;
 
 	i = 0;
-	while (str[i] != '\0')
+	res = 0;
+	while (src[res] != '\0')
+		res++;
+	while (dest[i] != '\0')
+		i++;
+	if (size <= i)
+		res = res + size;
+	else
+		res = res + i;
+	j = 0;
+	while (src[j] != '\0' && i + 1 < size)
 	{
+		dest[i] = src[j];
+		j++;
 		i++;
 	}
-	return (i);
+	dest[i] = '\0';
+	return (res);
 }

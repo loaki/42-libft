@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfeuilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/04 18:27:07 by jfeuilla          #+#    #+#             */
-/*   Updated: 2019/11/04 18:57:12 by jfeuilla         ###   ########.fr       */
+/*   Created: 2019/11/04 13:28:31 by jfeuilla          #+#    #+#             */
+/*   Updated: 2019/11/05 17:07:01 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	t_list *new;
+	unsigned int	i;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
-	if (!(new = (t_list *)malloc(sizeof(t_list))))
+	i = 0;
+	str1 = (unsigned char *)src;
+	str2 = (unsigned char *)dest;
+	if (dest == src)
 		return (NULL);
-	if (content == NULL)
-		new->content = NULL;
+	if (str2 > str1)
+		while (i < n)
+		{
+			str2[n - 1] = str1[n - 1];
+			n--;
+		}
 	else
-	{
-		if (!(new->content = malloc(sizeof(content))))
-			return (NULL);
-		ft_memcpy((new->content), content, sizeof(content));
-	}
-	new->next = NULL;
-	return (new);
+		while (i < n)
+		{
+			str2[i] = str1[i];
+			i++;
+		}
+	return (dest);
 }

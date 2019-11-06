@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfeuilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/04 16:12:25 by jfeuilla          #+#    #+#             */
-/*   Updated: 2019/11/04 16:19:51 by jfeuilla         ###   ########.fr       */
+/*   Created: 2019/11/04 13:28:01 by jfeuilla          #+#    #+#             */
+/*   Updated: 2019/11/05 16:51:18 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
 	unsigned int	i;
-	unsigned int	len;
-	char			*str;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
 	i = 0;
-	len = ft_strlen((char *)s);
-	if (!(str = (char *)malloc(sizeof(s) * (len + 1))))
-		return (NULL);
-	while (s[i])
+	str1 = (unsigned char *)src;
+	str2 = (unsigned char *)dest;
+	while (n > 0 && (dest || src))
 	{
-		str[i] = (*f)(i, s[i]);
+		if ((unsigned char)str1[i] == (unsigned char)c)
+		{
+			str2[i] = str1[i];
+			return (dest + i + 1);
+		}
+		str2[i] = str1[i];
 		i++;
+		n--;
 	}
-	str[i] = '\0';
-	return (str);
+	return (NULL);
 }

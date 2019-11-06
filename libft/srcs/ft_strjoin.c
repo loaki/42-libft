@@ -1,60 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfeuilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/04 16:53:51 by jfeuilla          #+#    #+#             */
-/*   Updated: 2019/11/04 18:28:07 by jfeuilla         ###   ########.fr       */
+/*   Created: 2019/09/13 10:05:27 by jfeuilla          #+#    #+#             */
+/*   Updated: 2019/11/06 16:48:15 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		nblen(int nb)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int			len;
+	char	*str;
+	int		i;
+	int		j;
 
-	len = 0;
-	if (nb < 0)
-	{
-		nb = -nb;
-		len++;
-	}
-	while (nb > 0)
-	{
-		nb = nb / 10;
-		len++;
-	}
-	return (len);
-}
-
-char	*ft_itoa(int n)
-{
-	int			i;
-	long int	nb;
-	char		*str;
-
-	nb = n;
-	i = nblen(nb);
-	if (!(str = (char *)malloc(sizeof(char) * (i + 1))))
+	i = 0;
+	j = 0;
+	if (!(str = malloc(sizeof(char) * (ft_strlen((const char *)s1) + 
+		ft_strlen((const char *)s2) + 1))))
 		return (NULL);
-	str[i--] = '\0';
-	if (n < 0)
-		str[0] = '-';
-	if (n < 0)
-		n = -n;
-	if (n == 0)
+	while (s1[i])
 	{
-		str[0] = '0';
-		return (str);
+		str[i] = s1[i];
+		i++;
 	}
-	while (n > 0)
+	while (s2[j])
 	{
-		str[i] = n % 10 + '0';
-		n = n / 10;
-		i--;
+		str[i] = s2[j];
+		i++;
+		j++;
 	}
+	str[i] = '\0';
 	return (str);
 }
