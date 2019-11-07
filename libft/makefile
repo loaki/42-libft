@@ -6,7 +6,7 @@
 #    By: jfeuilla <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/12 21:26:30 by jfeuilla          #+#    #+#              #
-#    Updated: 2019/11/07 14:00:12 by jfeuilla         ###   ########.fr        #
+#    Updated: 2019/11/07 16:17:19 by jfeuilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,9 +66,9 @@ CFLAGS		= -Wall -Wextra -Werror
 .c.o:	
 			cc ${CFLAGS} -c $< -o ${<:.c=.o}
 
-
-${NAME}:	${OBJS}
-			ar rcs ${NAME} ${OBJS}
+$(NAME):	libft.h ${OBJS}
+			ar rc ${NAME} ${OBJS}
+			ran lib ${NAME}
 
 all:		${NAME}
 
@@ -83,4 +83,4 @@ re:			fclean all
 bonus:		${OBJS} ${OBJB}
 			ar rcs ${NAME} ${OBJS} ${OBJB}
 
-.PHONY:		clean fclean all re
+.PHONY:		clean fclean all re bonus
