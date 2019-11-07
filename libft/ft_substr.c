@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfeuilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/06 14:30:16 by jfeuilla          #+#    #+#             */
-/*   Updated: 2019/11/06 16:33:49 by jfeuilla         ###   ########.fr       */
+/*   Created: 2019/11/04 13:51:54 by jfeuilla          #+#    #+#             */
+/*   Updated: 2019/11/06 18:22:30 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	t_list	*new;
-	t_list	*current;
+	unsigned int	i;
+	char			*dest;
 
-	new = NULL;
-	current = NULL;
-	while (lst)
+	i = start;
+	dest = NULL;
+	if (start > ft_strlen(s))
+		i = 0;
+	else
+		while (s[i] && i < len)
+			i++;
+	if (!(dest = (char *)malloc(sizeof(char) * (i + 1))))
+		return (NULL);
+	i = 0;
+	if (start < ft_strlen(s))
 	{
-		current = ft_lstnew(f(lst->content));
-		if (current == NULL)
+		while (s[start] && i < len)
 		{
-			ft_lstclear(&new, del);
-			return (NULL);
+			dest[i] = s[start];
+			start++;
+			i++;
 		}
-		ft_lstadd_back(&new, current);
-		lst = lst->next;
 	}
-	return (new);
+	dest[i] = '\0';
+	return (dest);
 }
