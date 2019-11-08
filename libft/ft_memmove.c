@@ -6,7 +6,7 @@
 /*   By: jfeuilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 13:28:31 by jfeuilla          #+#    #+#             */
-/*   Updated: 2019/11/05 17:07:01 by jfeuilla         ###   ########.fr       */
+/*   Updated: 2019/11/08 13:43:35 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	str1 = (unsigned char *)src;
 	str2 = (unsigned char *)dest;
 	if (dest == src)
-		return (NULL);
+		return (dest);
 	if (str2 > str1)
 		while (i < n)
 		{
