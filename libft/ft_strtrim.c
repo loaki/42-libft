@@ -6,7 +6,7 @@
 /*   By: jfeuilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 15:12:24 by jfeuilla          #+#    #+#             */
-/*   Updated: 2019/11/06 16:45:19 by jfeuilla         ###   ########.fr       */
+/*   Updated: 2019/11/08 12:41:15 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ char		*ft_strtrim(char const *s1, char const *set)
 	int		len;
 	int		i;
 
+	if (!s1 || !set)
+		return (NULL);
 	while (*s1 && ft_isset(*s1, set))
 		s1++;
 	i = 0;

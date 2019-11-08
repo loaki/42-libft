@@ -6,7 +6,7 @@
 #    By: jfeuilla <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/12 21:26:30 by jfeuilla          #+#    #+#              #
-#    Updated: 2019/11/07 16:17:19 by jfeuilla         ###   ########.fr        #
+#    Updated: 2019/11/08 12:35:43 by jfeuilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,7 @@ CFLAGS		= -Wall -Wextra -Werror
 
 $(NAME):	libft.h ${OBJS}
 			ar rc ${NAME} ${OBJS}
-			ran lib ${NAME}
+			ranlib ${NAME}
 
 all:		${NAME}
 

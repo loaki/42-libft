@@ -6,7 +6,7 @@
 /*   By: jfeuilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 16:23:19 by jfeuilla          #+#    #+#             */
-/*   Updated: 2019/11/05 19:51:18 by jfeuilla         ###   ########.fr       */
+/*   Updated: 2019/11/08 12:48:28 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_putstr_fd(char *s, int fd)
 	int i;
 
 	i = 0;
+	if (!s)
+		return ;
 	if (fd < 1)
 		return ;
 	while (s[i])

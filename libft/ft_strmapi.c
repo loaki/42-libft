@@ -6,7 +6,7 @@
 /*   By: jfeuilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 16:12:25 by jfeuilla          #+#    #+#             */
-/*   Updated: 2019/11/05 19:57:40 by jfeuilla         ###   ########.fr       */
+/*   Updated: 2019/11/08 12:42:49 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*str;
 
 	i = 0;
+	if (!s || !(*f))
+		return (NULL);
 	len = ft_strlen((char *)s);
 	if (len == 0)
 		return (NULL);

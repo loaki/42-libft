@@ -6,7 +6,7 @@
 /*   By: jfeuilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:44:16 by jfeuilla          #+#    #+#             */
-/*   Updated: 2019/11/06 13:37:55 by jfeuilla         ###   ########.fr       */
+/*   Updated: 2019/11/08 12:42:00 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ char			**ft_split(char const *str, char charset)
 	i = 0;
 	j = 0;
 	liste = 0;
+	if (!str)
+		return (NULL);
 	if (!(liste = malloc((1 + ft_nb(str, charset)) * sizeof(char *))))
 		return (0);
 	while (str[i] && ft_is_sep(str[i], charset))
