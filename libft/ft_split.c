@@ -6,7 +6,7 @@
 /*   By: jfeuilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 10:44:16 by jfeuilla          #+#    #+#             */
-/*   Updated: 2019/11/08 12:42:00 by jfeuilla         ###   ########.fr       */
+/*   Updated: 2019/11/09 16:18:45 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ static char		*ft_create_str(const char *str, char charset)
 	i = 0;
 	while (str[i] && !ft_is_sep(str[i], charset))
 		i++;
-	str_ret = malloc((i + 1) * sizeof(char));
+	if (!(str_ret = malloc((i + 1) * sizeof(char))))
+		return (0);
 	i = 0;
 	while (str[i] && !ft_is_sep(str[i], charset))
 	{
