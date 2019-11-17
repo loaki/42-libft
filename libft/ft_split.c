@@ -19,6 +19,15 @@ static int		ft_is_sep(char c, char c2)
 	return (0);
 }
 
+static char		**ft_strnull(void)
+{
+	char **s;
+
+	s = malloc(sizeof(char *));
+	s[0] = 0;
+	return (s);
+}
+
 static int		ft_nb(const char *str, char charset)
 {
 	int i;
@@ -68,8 +77,8 @@ char			**ft_split(char const *str, char charset)
 	i = 0;
 	j = 0;
 	liste = 0;
-	if (!str)
-		return (NULL);
+	if (str == 0)
+		return (ft_strnull());
 	if (!(liste = malloc((1 + ft_nb(str, charset)) * sizeof(char *))))
 		return (0);
 	while (str[i] && ft_is_sep(str[i], charset))

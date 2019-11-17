@@ -6,7 +6,7 @@
 /*   By: jfeuilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 15:12:24 by jfeuilla          #+#    #+#             */
-/*   Updated: 2019/11/08 14:49:00 by jfeuilla         ###   ########.fr       */
+/*   Updated: 2019/11/09 17:39:33 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,31 @@ static int	ft_isset(char c, const char *set)
 	return (0);
 }
 
+static char	*ft_strnull(void)
+{
+	char *s;
+
+	s = malloc(1);
+	s[0] = 0;
+	return (s);
+}
+
+static int	ft_init(char **s, int *a, int *b)
+{
+	*s = 0;
+	*a = 0;
+	*b = 0;
+	return (1);
+}
+
 char		*ft_strtrim(char const *s1, char const *set)
 {
 	char	*s2;
 	int		len;
 	int		i;
 
-	if (!s1 || !set)
-		return (NULL);
+	if (ft_init(&s2, &len, &i) && (s1 == 0 || set == 0))
+		return (ft_strnull());
 	while (*s1 && ft_isset(*s1, set))
 		s1++;
 	i = 0;
